@@ -21,7 +21,7 @@ clone git golang.org/x/net 3cffabab72adf04f8e3b01c5baf775361837b5fe https://gith
 clone hg code.google.com/p/gosqlite 74691fb6f837
 
 #get libnetwork packages
-clone git github.com/docker/libnetwork bd3eecc96f3c05a4acef1bedcf74397bc6850d22
+clone git github.com/axsh/libnetwork develop
 clone git github.com/armon/go-metrics eb0af217e5e9747e41dd5303755356b62d28e3ec
 clone git github.com/hashicorp/go-msgpack 71c2886f5a673a35f909803f38ece5810165097b
 clone git github.com/hashicorp/memberlist 9a1e242e454d2443df330bdd51a436d5a9058fc4
@@ -43,7 +43,7 @@ clone git github.com/endophage/gotuf a592b03b28b02bb29bb5878308fb1abed63383b5
 clone git github.com/tent/canonical-json-go 96e4ba3a7613a1216cbd1badca4efe382adea337
 clone git github.com/agl/ed25519 d2b94fd789ea21d12fac1a4443dd3a3f79cda72c
 
-clone git github.com/opencontainers/runc v0.0.2 # libcontainer
+clone git github.com/axsh/runc develop # libcontainer
 # libcontainer deps (see src/github.com/docker/libcontainer/update-vendor.sh)
 clone git github.com/coreos/go-systemd v2
 clone git github.com/godbus/dbus v2
