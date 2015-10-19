@@ -934,19 +934,21 @@ func (s *Server) postContainersCreate(version version.Version, w http.ResponseWr
 	}
 	var (
 		warnings []string
-		name     = r.Form.Get("name")
+		// name     = r.Form.Get("name")
 	)
 
-	config, hostConfig, err := runconfig.DecodeContainerConfig(r.Body)
+	_, hostConfig, err := runconfig.DecodeContainerConfig(r.Body)
 	if err != nil {
 		return err
 	}
 	adjustCpuShares(version, hostConfig)
 
-	containerId, warnings, err := s.daemon.ContainerCreate(name, config, hostConfig)
-	if err != nil {
-		return err
-	}
+	// containerId, warnings, err := s.daemon.ContainerCreate(name, config, hostConfig)
+	// if err != nil {
+	// 	return err
+	// }
+
+	var containerId string
 
 	return writeJSON(w, http.StatusCreated, &types.ContainerCreateResponse{
 		ID:       containerId,
