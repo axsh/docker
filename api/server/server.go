@@ -38,6 +38,7 @@ import (
 	"github.com/docker/docker/pkg/version"
 	"github.com/docker/docker/runconfig"
 	"github.com/docker/docker/utils"
+	wakame_api "github.com/t-iwano/wakame_api_client/api"
 )
 
 type ServerConfig struct {
@@ -947,6 +948,18 @@ func (s *Server) postContainersCreate(version version.Version, w http.ResponseWr
 	// if err != nil {
 	// 	return err
 	// }
+
+	wapi := wakame_api.NewApiInitialize("/etc/docker")
+	newinstance := map[string]string{
+		    "image_id": "wmi-centos1d64",
+		    "hypervisor": "kvm",
+		    "cpu_cores": "1",
+		    "memory_size": "512",
+		    "host_node_group": "hng-shhost",
+		    "ssh_key_id": "ssh-demo",
+		    "vifs": "{\"eth0\":{\"index\":\"0\",\"network\":\"nw-demo8\"}}",
+		    }
+	wapi.Instance().Create(newinstance)
 
 	var containerId string
 
